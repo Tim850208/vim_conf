@@ -22,9 +22,12 @@
 
 " TAB setting
     set expandtab                       "replace <TAB> with spaces
+    set tabstop=4
     set softtabstop=4
     set shiftwidth=4
     set smarttab                        " insert tabs on the start of a line according to context
+    autocmd FileType make setlocal noexpandtab "makefile use tab instead of space
+
 
 " Filetype setting
     filetype on                         " Enable filetype detection
@@ -70,10 +73,10 @@
     nnoremap <S-Tab> <<
     nnoremap <Enter> o<Esc>
     nnoremap <S-Enter> O<Esc>
-    inoremap jj <Esc>
+    inoremap jj <Esc>l
 
 " auto reload vimrc when editing it
-    autocmd! bufwritepost _vimrc source ~/_vimrc
+    autocmd! bufwritepost vimrc source ~/.vim/vimrc
 
 " auto delete all the empty after a sentence
     autocmd BufWritePre * :%s/\s\+$//e
